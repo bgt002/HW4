@@ -51,7 +51,7 @@
     
                     }
                     else{
-                        document.getElementById("textOutput").innerHTML = "Prompt Result: " + userAnswer;
+                        document.getElementById("textOutput").innerHTML = `Prompt Result: ${userAnswer}`;
                     }
                 }
     
@@ -62,7 +62,7 @@
                     }
                     else{
                         let purified = DOMPurify.sanitize(userAnswer)
-                        document.getElementById("textOutput").innerHTML = "Prompt Result: " + purified;
+                        document.getElementById("textOutput").innerHTML = `Prompt Result: ${purified}`;
                     }
                 }
             </script>
