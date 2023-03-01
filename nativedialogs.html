@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <p>Buttons:</p>
+        <button id="alertBtn">Alert</button>
+        <button id="confirmBtn">Confirm</button>
+        <button id="promptBtn">Prompt</button>
+        <button id="saferPromptBtn">Safer Prompt</button>
+
+        <script>
+            const alertElement = document.getElementById("alertBtn");
+            const confirmElement = document.getElementById("confirmBtn");
+
+            alertElement.addEventListener("click", alertBtnMsg);
+            confirmElement.addEventListener("click", confirmBtnMsg);
+            
+            function alertBtnMsg(){
+                alert("Alert!");
+            }
+
+            function confirmBtnMsg(){
+                confirm("Press a button!");
+            }
+        </script>
+    </body>
+</html>
