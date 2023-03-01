@@ -13,19 +13,48 @@
             <button id="confirmBtn">Confirm</button>
             <button id="promptBtn">Prompt</button>
             <hr>
-            
             <p id="textOutput"></p>
+
             <dialog id="alertDialog"> 
                 <form method="dialog">
                     <button>
-                        Good
+                        Alert Pressed!
+                    </button>
+                </form>
+            </dialog>
+
+            <dialog id ="confirmDialog">
+                <form method = "dialog">
+                    <p>
+                        Do you confirm this?
+                    </p>
+                    <button id="confirm">
+                        Confirm
+                    </button>
+                    <button id="Deny">
+                        No
+                    </button>
+                </form>
+            </dialog>
+
+            <dialog id="promptDialog">
+                <form method = "dialog">
+                    <label for="firstName">What is your name?</label>
+                    <input type="text" id="firstName" name="firstName">
+                    <button id="submit">
+                        Submit
+                    </button>
+                    <button id="cancel">
+                        Cancel
                     </button>
                 </form>
             </dialog>
         </body>
 
         <script type="module">
-            import {alertDialog} from './customdialogs.js';
+            import {alertDialog, confirmDialog, promptDialog} from './customdialog.js';
             alertDialog();
+            confirmDialog();
+            promptDialog();
         </script>
     </main>

@@ -1,7 +1,23 @@
 export function alertDialog(){
     const alertBtn = document.getElementById('alertBtn');
-    const alDialog = document.getElementById('alertDialog');
+    const alertDialog = document.getElementById('alertDialog');
     alertBtn.addEventListener('click', () => {
-        alDialog.showModal();
+        alertDialog.showModal();
+    });
+}
+
+export function confirmDialog(){
+    const confirmBtn = document.getElementById('confirmBtn');
+    const confirmDialog = document.getElementById('confirmDialog');
+    confirmBtn.addEventListener('click', () => {
+        confirmDialog.showModal();
+    });
+}
+
+export function promptDialog(){
+    const promptBtn = document.getElementById('promptBtn');
+    const promptDialog = document.getElementById('promptDialog');
+    promptBtn.addEventListener('click', () => {
+        promptDialog.showModal();
     });
 }
