@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>CSE 134B HW4 Simple Dialogs</title>
+        <meta name = "Author" content = "Brian Tran">
+        <script type="text/javascript" src="/node_modules/dompurify/dist/purify.js"></script>
+    </head>
+
+    <main>
+        <body>
+            <h1>Custom Dialogs:</h1>
+            <button id="alertBtn">Alert</button>
+            <button id="confirmBtn">Confirm</button>
+            <button id="promptBtn">Prompt</button>
+            <hr>
+            <p id="textOutput"></p>
+        </body>
+
+        <dialog id="alertDialog"> 
+            <form method="dialog">
+                <p>
+                    Alert Pressed!
+                </p>
+            </form>
+        </dialog>
+    </main>
