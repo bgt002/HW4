@@ -10,9 +10,14 @@
         <script>
             const alertElement = document.getElementById("alertBtn");
             const confirmElement = document.getElementById("confirmBtn");
+            const promptElement = document.getElementById("promptBtn");
+            const saferPromptElement = document.getElementById("saferPromptBtn");
 
             alertElement.addEventListener("click", alertBtnMsg);
             confirmElement.addEventListener("click", confirmBtnMsg);
+            promptElement.addEventListener("click", propmtBtnMsg);
+            saferPromptElement.addEventListener("click", saferPromptBtnMsg);
+
             
             function alertBtnMsg(){
                 alert("Alert!");
@@ -20,6 +25,14 @@
 
             function confirmBtnMsg(){
                 confirm("Press a button!");
+            }
+
+            function propmtBtnMsg(){
+                prompt("this is my prompt box");
+            }
+
+            function saferPromptBtnMsg(){
+                prompt("this is the saferprompt box");
             }
         </script>
     </body>
