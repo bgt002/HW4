@@ -1,6 +1,7 @@
 export function alertDialog(){
+    const alertBtn = document.getElementById('alertBtn');
     const alDialog = document.getElementById('alertDialog');
-    showButton.addEventListener('click', () => {
-        favDialog.showModal();
+    alertBtn.addEventListener('click', () => {
+        alDialog.showModal();
     });
 }

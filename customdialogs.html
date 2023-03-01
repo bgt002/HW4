@@ -13,14 +13,19 @@
             <button id="confirmBtn">Confirm</button>
             <button id="promptBtn">Prompt</button>
             <hr>
+            
             <p id="textOutput"></p>
+            <dialog id="alertDialog"> 
+                <form method="dialog">
+                    <button>
+                        Good
+                    </button>
+                </form>
+            </dialog>
         </body>
 
-        <dialog id="alertDialog"> 
-            <form method="dialog">
-                <p>
-                    Alert Pressed!
-                </p>
-            </form>
-        </dialog>
+        <script type="module">
+            import {alertDialog} from './customdialogs.js';
+            alertDialog();
+        </script>
     </main>
