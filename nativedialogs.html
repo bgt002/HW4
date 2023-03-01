@@ -1,39 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-    <body>
-        <p>Buttons:</p>
-        <button id="alertBtn">Alert</button>
-        <button id="confirmBtn">Confirm</button>
-        <button id="promptBtn">Prompt</button>
-        <button id="saferPromptBtn">Safer Prompt</button>
+    <head>
+        <title>CSE 134B HW4 Simple Dialogs</title>
+        <meta name = "Author" content = "Brian Tran">
+        <script type="text/javascript" src="/node_modules/dompurify/dist/purify.js"></script>
 
-        <script>
-            const alertElement = document.getElementById("alertBtn");
-            const confirmElement = document.getElementById("confirmBtn");
-            const promptElement = document.getElementById("promptBtn");
-            const saferPromptElement = document.getElementById("saferPromptBtn");
-
-            alertElement.addEventListener("click", alertBtnMsg);
-            confirmElement.addEventListener("click", confirmBtnMsg);
-            promptElement.addEventListener("click", propmtBtnMsg);
-            saferPromptElement.addEventListener("click", saferPromptBtnMsg);
-
-            
-            function alertBtnMsg(){
-                alert("Alert!");
-            }
-
-            function confirmBtnMsg(){
-                confirm("Press a button!");
-            }
-
-            function propmtBtnMsg(){
-                prompt("this is my prompt box");
-            }
-
-            function saferPromptBtnMsg(){
-                prompt("this is the saferprompt box");
-            }
-        </script>
-    </body>
+    </head>
+    
+    <main>
+        <body>
+            <p>Buttons:</p>
+            <button id="alertBtn">Alert</button>
+            <button id="confirmBtn">Confirm</button>
+            <button id="promptBtn">Prompt</button>
+            <button id="saferPromptBtn">Safer Prompt</button>
+            <p id="textOutput"></p>
+    
+            <script>
+                const alertElement = document.getElementById("alertBtn");
+                const confirmElement = document.getElementById("confirmBtn");
+                const promptElement = document.getElementById("promptBtn");
+                const saferPromptElement = document.getElementById("saferPromptBtn");
+    
+    
+                alertElement.addEventListener("click", alertBtnMsg);
+                confirmElement.addEventListener("click", confirmBtnMsg);
+                promptElement.addEventListener("click", promptBtnMsg);
+                saferPromptElement.addEventListener("click", saferPromptBtnMsg);
+    
+                
+                function alertBtnMsg(){
+                    alert("Alert!");
+                }
+    
+                function confirmBtnMsg(){
+                    let confirmMsg = "Do you confirm this?"
+                    if(confirm(confirmMsg) == true){
+                        confirmMsg = "Confirm Result: True"
+                    }
+                    else{
+                        confirmMsg = "Confirm Result: False"
+                    }
+                    document.getElementById("textOutput").innerHTML = confirmMsg;
+                }
+    
+                function promptBtnMsg(){
+                    var userAnswer = prompt("What is your name?");
+                    if(userAnswer == null || userAnswer == ""){
+                        document.getElementById("textOutput").innerHTML = "User didn't input anything";
+    
+                    }
+                    else{
+                        document.getElementById("textOutput").innerHTML = "Prompt Result: " + userAnswer;
+                    }
+                }
+    
+                function saferPromptBtnMsg(){
+                    var userAnswer = prompt("What is your name?");
+                    if(userAnswer == null || userAnswer == ""){
+                        document.getElementById("textOutput").innerHTML = "User didn't input anything";
+                    }
+                    else{
+                        let purified = DOMPurify.sanitize(userAnswer)
+                        document.getElementById("textOutput").innerHTML = "Prompt Result: " + purified;
+                    }
+                }
+            </script>
+        </body>
+    </main>
 </html>
