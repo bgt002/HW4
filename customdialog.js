@@ -36,16 +36,13 @@ export function promptDialog(){
         let firstName = document.getElementById('firstName').value;
         if(firstName == null || firstName == ""){
             outputBox.value = `User didn't input anything`;
-            console.log("in the if" + firstName);
         }
         else{
-            console.log("entered else");
             let purified = DOMPurify.sanitize(firstName);
             outputBox.value = `Prompt Result: ${purified}`;
         }
     })
     cancelBtn.addEventListener('click', () => {
-        console.log("entered cancel")
         outputBox.value = `User didn't input anything`;
     })
 }
