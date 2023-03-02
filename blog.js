@@ -1,3 +1,5 @@
+let blogData = [];
+
 export function addToListDialog(){
     const addBtn = document.getElementById('addBtn');
     const addToListDialog = document.getElementById('addToListDialog');
@@ -19,11 +21,16 @@ export function addToListDialog(){
         var deleteButton = document.createElement("button");
         editButton.innerHTML = "Edit";
         deleteButton.innerHTML = "Delete";
-        const textNode = document.createTextNode(`Post Title: ${postTitle} || Date: ${postDate} || Summary: ${summary} `)
+        var textNode = document.createTextNode(`Post Title: ${postTitle} || Date: ${postDate} || Summary: ${summary} `)
         blogList.appendChild(textNode);
         blogList.appendChild(editButton);
         blogList.appendChild(deleteButton);
         document.getElementById("blogList").appendChild(blogList);
+        blogData.push({
+            postTitle: postTitle.value,
+            postDate: postDate.value,
+            summary: summary.value
+        })
 
         deleteButton.addEventListener('click', () => {
             deleteMovieDialog.showModal();
@@ -36,16 +43,19 @@ export function addToListDialog(){
         editButton.addEventListener('click', () => {
             editListDialog.showModal();
             saveChanges.addEventListener('click', () => {
-                const blogList = document.createElement("li");
-                let postTitle = document.getElementById('postTitle').value;
-                let postDate = document.getElementById('postDate').value;
-                let summary = document.getElementById('summary').value;
-                var editButton = document.createElement("button");
-                var deleteButton = document.createElement("button");
-                editButton.innerHTML = "Edit";
-                deleteButton.innerHTML = "Delete";
-                const textNode = document.createTextNode(`Post Title: ${postTitle} || Date: ${postDate} || Summary: ${summary} `)
-            })
+                let newPostTitle = document.getElementById('newPostTitle').value;
+                let newPostDate = document.getElementById('newPostDate').value;
+                let newSummary = document.getElementById('newSummary').value;
+                const newtextNode = document.createTextNode(`Post Title: ${newPostTitle} || Date: ${newPostDate} || Summary: ${newSummary} `)
+                console.log("This is the textNode" + textNode);
+                blogData.splice(textNode, 1, newtextNode)
+                // let deletedNode = blogList.childNode[0];
+                // let deletedNode = textNode;
+                blogList.replaceChild(newtextNode, textNode);
+                // blogList.removeChild(deletedNode);
+                // blogList.appendChild(newtextNode);
+                // textNode = newtextNode;
+            }, {once: true})
         })
     })
 }
