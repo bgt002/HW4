@@ -31,9 +31,6 @@ export function addToListDialog(){
     // Event listener for add to list button
     addToListBtn.addEventListener('click', () => {
         const saveChanges = document.getElementById('saveChanges');
-        const saveChangesBtn = document.createElement("i");
-        saveChangesBtn.setAttribute("class", "fa fa-save");
-        saveChanges.prepend(saveChangesBtn);
         const blogList = document.createElement("li");
         const deleteMovieDialog = document.getElementById('deleteMovieDialog');
         const deleteMovieBtn = document.getElementById('deleteMovie');
