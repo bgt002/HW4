@@ -49,12 +49,14 @@ export function addToListDialog(){
                 const newtextNode = document.createTextNode(`Post Title: ${newPostTitle} || Date: ${newPostDate} || Summary: ${newSummary} `)
                 console.log("This is the textNode" + textNode);
                 blogData.splice(textNode, 1, newtextNode)
-                // let deletedNode = blogList.childNode[0];
-                // let deletedNode = textNode;
-                blogList.replaceChild(newtextNode, textNode);
-                // blogList.removeChild(deletedNode);
-                // blogList.appendChild(newtextNode);
-                // textNode = newtextNode;
+                let deletedNode = blogList.childNodes[0];
+                blogList.removeChild(deletedNode);
+                let deletedNode1 = blogList.childNodes[1];
+                let deletedNode2 = blogList.childNodes[2];
+                blogList.removeChild(deletedNode1);
+                blogList.appendChild(newtextNode);
+                blogList.appendChild(editButton);
+                blogList.appendChild(deleteButton);
             }, {once: true})
         })
     })
